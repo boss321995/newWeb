@@ -1,29 +1,33 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
+  
+   css: [
+     // 1) Swiper CSS (หรือ CSS อื่นที่อาจ override ปุ่ม)
+    'swiper/css',
+    'swiper/css/navigation',
+    'swiper/css/pagination',
+   
+    
+  ],
   modules: [
-    '@nuxt/ui', // ตรวจสอบให้แน่ใจว่ามีอยู่
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n' // เพิ่มโมดูล i18n
   ],
-  css: [
-    '~/assets/css/main.css', // <-- เพิ่มบรรทัดนี้ (เปลี่ยนชื่อไฟล์ตามจริง)
-  ],
-  i18n: {
-    // คุณจะต้องกำหนด locales และ defaultLocale
-    locales: [
-      {
-        code: 'en',
-        iso: 'en-US',
-        name: 'English'
-      },
-      {
-        code: 'th',
-        iso: 'th-TH',
-        name: 'Thai'
+
+    build: {
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          // ถ้าคุณใช้ TailwindCSS:
+          tailwindcss: {},
+          // ถ้าต้องการ Autoprefixer
+          autoprefixer: {},
+          // ถ้ามีปลั๊กอินอื่น ก็ใส่ที่นี่ เช่น postcss-import ฯลฯ
+          // 'postcss-import': {}
+        }
       }
-      // เพิ่ม locales อื่นๆ ตามต้องการ
-    ],
-    defaultLocale: 'en', // ตั้งค่า default locale ของคุณ
-    vueI18n: './i18n.config.ts', // เส้นทางไปยังไฟล์กำหนดค่า i18n ของคุณ
+    }
   },
+ 
   // ... การตั้งค่าอื่นๆ
 })

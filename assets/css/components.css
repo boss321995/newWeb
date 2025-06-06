@@ -1,0 +1,8 @@
+/* ตัวอย่างถ้ามีโค้ด custom components ไว้ในไฟล์อื่นชื่อ components.css */
+/* คุณอาจสร้างไฟล์ assets/css/components.css แล้วเขียน @layer components { … } ลงไป */
+@import "tailwindcss/preflight";
+
+@import "@/assets/css/components.css"; /* กรณีมี @layer components แยกไว้ */
+
+
+@import "tailwindcss/utilities";

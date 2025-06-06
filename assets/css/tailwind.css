@@ -1,0 +1,7 @@
+/* assets/css/tailwind.css */
+
+/* 1) โหลด Preflight (reset) ก่อน */
+@import "tailwindcss/preflight";
+
+/* 2) โหลดทุก Utilities (รวมทั้ง component layer ที่ถูกย้ายไว้ใน utilities แล้ว) */
+@import "tailwindcss/utilities";

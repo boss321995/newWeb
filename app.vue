@@ -1,27 +1,31 @@
-// app.vue
+<!-- app.vue -->
 <template>
-  <div>
+  <!-- ครอบด้วย UIProvider เพื่อให้คอมโพเนนต์ของ Nuxt UI ทำงานได้ -->
+  <UIProvider>
+    <!-- ตั้งค่า Head รวมถึง viewport ให้ Responsive ทำงานได้ถูกต้อง -->
+    <Head>
+      <title>NT Academy</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Head>
+
+    <!-- เรียกเลย์เอาต์และเพจตามปกติ -->
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
 
-    <!-- ทดลองเพิ่มคอมโพเนนต์ Nuxt UI เพื่อทดสอบสไตล์ -->
-    <div class="p-4 m-4 border border-dashed">
-      <h2 class="text-xl mb-2">ทดสอบ Nuxt UI Component:</h2>
-      <UButton label="ปุ่มทดสอบ (Button)" color="primary" variant="solid" />
-      <UInput placeholder="ช่องกรอกข้อมูล (Input)" class="mt-2" />
-    </div>
-  </div>
+    
+  </UIProvider>
 </template>
 
 <script setup lang="ts">
-// สามารถเพิ่ม script ที่จำเป็นได้ที่นี่
+// ไม่ต้อง import UButton หรือ UInput เอง เพราะ @nuxt/ui จะ register ให้โดยอัตโนมัติ
+// แต่ถ้าต้องการใช้งานคอมโพเนนต์แบบ non-global ก็สามารถ import ได้ เช่น:
+// import { UButton, UInput, UIProvider, Head } from 'nuxt-ui'
 </script>
 
 <style>
-/* คุณสามารถเพิ่ม global style ที่นี่ได้หากต้องการ
-   แต่แนะนำให้ใช้ผ่าน assets/css/main.css และกำหนดใน nuxt.config.ts */
+/* ตัวอย่าง Global Style เพิ่มเติม (ถ้าจำเป็น) */
 body {
-  font-family: sans-serif; /* ตัวอย่าง global style */
+  font-family: sans-serif;
 }
 </style>
